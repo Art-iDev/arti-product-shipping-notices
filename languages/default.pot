@@ -1,0 +1,64 @@
+# Copyright (C) 2021 Luis Eduardo Casper Braschi
+# This file is distributed under the same license as the Product shipping notices for WCFM plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Product shipping notices for WCFM\n"
+"Report-Msgid-Bugs-To: https://art-idesenvolvimento.com.br/wordpress/plugins/product-shipping-notices\n"
+"Last-Translator: Luis Eduardo Casper Braschi <luis.braschi@art-idesenvolvimento.com.br>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2021-12-07T12:43:05-03:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.5.0\n"
+"X-Domain: arti-psn\n"
+
+#. Plugin Name of the plugin
+msgid "Product shipping notices for WCFM"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://art-idesenvolvimento.com.br/wordpress/plugins/aviso-de-frete"
+msgstr ""
+
+#. Author of the plugin
+msgid "Luis Eduardo Casper Braschi"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "http://art-idesenvolvimento.com.br"
+msgstr ""
+
+#: includes/class-core.php:147
+msgid " and"
+msgstr ""
+
+#. translators: 1: location group (eg, list of states) 2: order amount
+#: includes/class-core.php:151
+msgid "<strong>Free shipping</strong> to the states of %1$s for orders over %2$s with products from this vendor."
+msgstr ""
+
+#. translators: 1: location group (eg, list of states)
+#: includes/class-core.php:155
+msgid "<strong>Free shipping</strong> to the states of %1$s with products from this vendor."
+msgstr ""
+
+#. translators: 2: order amount
+#: includes/class-core.php:160
+msgid "<strong>Free shipping</strong> for orders over %2$s with products from this vendor."
+msgstr ""
+
+#. translators: %s: vendor shop URL
+#: includes/class-core.php:169
+msgid "Check all options <a href=\"%s\" title=\"All products from this vendor\">here</a>."
+msgstr ""
+
+#: includes/class-core.php:188
+msgid "Save more by adding products of the same vendor to your cart"
+msgstr ""
+
+#. translators: %s: vendor shop URL
+#: includes/class-core.php:192
+msgid "<a href=\"%s\" title=\"All products from this vendor\">here</a>."
+msgstr ""
