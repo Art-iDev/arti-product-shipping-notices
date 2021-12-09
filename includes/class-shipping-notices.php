@@ -14,10 +14,9 @@ use function Arti\PSN\Marketplace\functions\{
 class Shipping_Notices {
 
 	private static $instance = null;
+	private const TYPE_DEFAULT = 'dafault';
 
-	private function __construct(){
-
-	}
+	private function __construct(){}
 
 	public static function get_instance(){
 		if ( null === self::$instance ) {
@@ -57,7 +56,8 @@ class Shipping_Notices {
 
 			if( 'free_shipping' !== $result->method_id ){
 
-				$notices[] = $this->get_default_notice( $vendor_id );
+				// We only need one default.
+				$notices[self::TYPE_DEFAULT] = $this->get_default_notice( $vendor_id );
 
 				continue;
 			}
