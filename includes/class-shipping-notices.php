@@ -37,7 +37,7 @@ class Shipping_Notices {
 
 		if(
 			( $cached = get_transient( 'arti_psn_shipping_notice_' . $vendor_id ) ) &&
-			!apply_filters( 'arti_psn_shipping_notice_update', true )
+			!apply_filters( 'arti_psn_shipping_notice_update', false )
 		){
 			return $cached;
 		}
