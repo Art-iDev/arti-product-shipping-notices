@@ -92,6 +92,10 @@ class Shipping_Notices {
 
 		}
 
+		if( apply_filters( 'arti_psn_remove_default_when_free_shipping_present', false ) ){
+			unset( $notices[self::TYPE_DEFAULT] );
+		}
+
 		foreach( $location_groups as $location_group ){
 
 			$expanded_locations = $location_group['expanded_locations'];
