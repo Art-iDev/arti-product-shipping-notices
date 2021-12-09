@@ -119,7 +119,7 @@ class Shipping_Notices {
 	 */
 	protected function expand_locations( array $locations ){
 
-		$all_states = WC()->countries->get_states()['BR'];
+		$all_states = WC()->countries->get_states();
 
 		$states = [];
 
@@ -131,8 +131,11 @@ class Shipping_Notices {
 				continue;
 			}
 
-			$location = str_replace( 'BR:', '', $location['code'] );
-			$states[] = $all_states[$location];
+			$location_parts = explode( ':', $location['code'] );
+
+			$country_abbr = $location_parts[0];
+			$state_abbr = $location_parts[1];
+			$states[] = $all_states[$country_abbr][$state_abbr];
 
 		}
 
