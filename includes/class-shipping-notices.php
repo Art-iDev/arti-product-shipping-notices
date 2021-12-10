@@ -79,7 +79,7 @@ class Shipping_Notices {
 
 			$min_amount = $settings['min_amount'];
 
-			$group_by_min_amount = apply_filters( 'arti_psn_group_notices_by_min_amount', 'no' );
+			$group_by_min_amount = apply_filters( 'arti_psn_group_notices_by_min_amount', false );
 
 			if( wc_string_to_bool( $group_by_min_amount ) ){
 
