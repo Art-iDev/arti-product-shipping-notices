@@ -162,7 +162,9 @@ class Shipping_Notices {
 
 		$locations_str = implode( ', ', $location_group );
 
-		if( 1 < count( $location_group ) ){
+		$location_group_length = count( $location_group );
+
+		if( 1 < $location_group_length ){
 			/**
 			 * @todo Cover RTL languages and/or languages that don't use "and".
 			 * @var $locations_str Replace the last comma witb "and".
@@ -171,11 +173,21 @@ class Shipping_Notices {
 		}
 
 		/* translators: 1: location group (eg, list of states) 2: order amount */
-		$notice_template = __( '<strong>Free shipping</strong> to the states of %1$s for orders over %2$s with products from this vendor.', 'arti-psn' );
+		$notice_template = _n(
+			'<strong>Free shipping</strong> to the state of %1$s for orders over %2$s with products from this vendor.',
+			'<strong>Free shipping</strong> to the states of %1$s for orders over %2$s with products from this vendor.',
+			$location_group_length,
+			'arti-psn'
+		);
 
 		if( 0 === intval( $min_amount ) ){
 			/* translators: 1: location group (eg, list of states) */
-			$notice_template = __( '<strong>Free shipping</strong> to the states of %1$s with products from this vendor.', 'arti-psn' );
+			$notice_template = _n(
+				'<strong>Free shipping</strong> to the state of %1$s with products from this vendor.',
+				'<strong>Free shipping</strong> to the states of %1$s with products from this vendor.',
+				$location_group_length,
+				'arti-psn'
+			);
 		}
 
 		if( empty( $location_group ) ){

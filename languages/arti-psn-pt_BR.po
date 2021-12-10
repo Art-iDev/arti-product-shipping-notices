@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Product shipping notices for WCFM\n"
 "Report-Msgid-Bugs-To: https://art-idesenvolvimento.com.br/wordpress/plugins/"
 "product-shipping-notices\n"
-"POT-Creation-Date: 2021-12-07T12:43:05-03:00\n"
+"POT-Creation-Date: 2021-12-10T12:16:31-03:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Luis Eduardo Casper Braschi <luis.braschi@art-"
 "idesenvolvimento.com.br>\n"
@@ -20,7 +20,9 @@ msgid "Product shipping notices for WCFM"
 msgstr "Aviso de frete na página de produto para WCFM"
 
 #. Plugin URI of the plugin
-msgid "https://art-idesenvolvimento.com.br/wordpress/plugins/aviso-de-frete"
+msgid ""
+"https://art-idesenvolvimento.com.br/wordpress/plugins/aviso-de-frete-para-"
+"marketplaces"
 msgstr ""
 
 #. Author of the plugin
@@ -31,30 +33,42 @@ msgstr ""
 msgid "http://art-idesenvolvimento.com.br"
 msgstr ""
 
-#: includes/class-core.php:147
+#: includes/class-shipping-notices.php:172
 msgid " and"
 msgstr " e"
 
 #. translators: 1: location group (eg, list of states) 2: order amount
-#: includes/class-core.php:151
+#: includes/class-shipping-notices.php:176
 msgid ""
+"<strong>Free shipping</strong> to the state of %1$s for orders over %2$s "
+"with products from this vendor."
+msgid_plural ""
 "<strong>Free shipping</strong> to the states of %1$s for orders over %2$s "
 "with products from this vendor."
-msgstr ""
+msgstr[0] ""
+"<strong>Frete grátis</strong> para o estado %1$s em pedidos acima de "
+"%2$s nos produtos desse vendedor."
+msgstr[1] ""
 "<strong>Frete grátis</strong> para os estados de %1$s em pedidos acima de "
 "%2$s nos produtos desse vendedor."
 
 #. translators: 1: location group (eg, list of states)
-#: includes/class-core.php:155
+#: includes/class-shipping-notices.php:185
 msgid ""
+"<strong>Free shipping</strong> to the state of %1$s with products from this "
+"vendor."
+msgid_plural ""
 "<strong>Free shipping</strong> to the states of %1$s with products from this "
 "vendor."
-msgstr ""
+msgstr[0] ""
+"<strong>Frete grátis</strong> para o estado %1$s nos produtos desse "
+"vendedor."
+msgstr[1] ""
 "<strong>Frete grátis</strong> para os estados de %1$s nos produtos desse "
 "vendedor."
 
 #. translators: 2: order amount
-#: includes/class-core.php:160
+#: includes/class-shipping-notices.php:195
 msgid ""
 "<strong>Free shipping</strong> for orders over %2$s with products from this "
 "vendor."
@@ -63,7 +77,7 @@ msgstr ""
 "vendedor."
 
 #. translators: %s: vendor shop URL
-#: includes/class-core.php:169
+#: includes/class-shipping-notices.php:204
 msgid ""
 "Check all options <a href=\"%s\" title=\"All products from this vendor"
 "\">here</a>."
@@ -71,11 +85,11 @@ msgstr ""
 "Confira todas as opções <a href=\"%s\" title=\"Todos os produtos desse "
 "vendedor\">aqui</a>."
 
-#: includes/class-core.php:188
+#: includes/class-shipping-notices.php:223
 msgid "Save more by adding products of the same vendor to your cart"
 msgstr "Economize mais adicionando produtos do mesmo vendedor ao carrinho"
 
 #. translators: %s: vendor shop URL
-#: includes/class-core.php:192
+#: includes/class-shipping-notices.php:227
 msgid "<a href=\"%s\" title=\"All products from this vendor\">here</a>."
 msgstr "<a href=\"%s\" title=\"Todos os produtos desse vendedor\">aqui</a>."
