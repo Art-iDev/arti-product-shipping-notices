@@ -55,6 +55,7 @@ class Shipping_Notices {
 		foreach ( $results as $key => $result ) {
 
 			if( 'free_shipping' !== $result->method_id ){
+			if( 'free_shipping' !== $result->method_id || !wc_string_to_bool( $result->is_enabled ) ){
 
 				// We only need one default.
 				$notices[self::TYPE_DEFAULT] = $this->get_default_notice( $vendor_id );
