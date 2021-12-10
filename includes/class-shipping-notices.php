@@ -52,9 +52,10 @@ class Shipping_Notices {
 
 		$location_groups = [];
 
+		$has_free_shipping = false;
+
 		foreach ( $results as $key => $result ) {
 
-			if( 'free_shipping' !== $result->method_id ){
 			if( 'free_shipping' !== $result->method_id || !wc_string_to_bool( $result->is_enabled ) ){
 
 				// We only need one default.
@@ -62,6 +63,8 @@ class Shipping_Notices {
 
 				continue;
 			}
+
+			$has_free_shipping = true;
 
 			$locations = get_zone_locations( $result->zone_id, $vendor_id );
 
@@ -93,7 +96,7 @@ class Shipping_Notices {
 
 		}
 
-		if( apply_filters( 'arti_psn_remove_default_when_free_shipping_present', false ) ){
+		if( apply_filters( 'arti_psn_remove_default_when_free_shipping_present', false ) && $has_free_shipping ){
 			unset( $notices[self::TYPE_DEFAULT] );
 		}
 
