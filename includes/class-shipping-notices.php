@@ -213,7 +213,7 @@ class Shipping_Notices {
 			ARTI_PSN_TEMPLATE
 		);
 
-		return $html;
+		return apply_filters( 'arti_psn_get_free_shipping_notice', $html, $vendor_id, $location_group, $min_amount );
 
 	}
 
@@ -236,7 +236,7 @@ class Shipping_Notices {
 			ARTI_PSN_TEMPLATE
 		);
 
-		return $html;
+		return return apply_filters( 'arti_psn_get_default_notice', $html, $vendor_id );
 
 	}
 
