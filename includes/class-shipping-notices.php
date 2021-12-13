@@ -236,7 +236,7 @@ class Shipping_Notices {
 			ARTI_PSN_TEMPLATE
 		);
 
-		return return apply_filters( 'arti_psn_get_default_notice', $html, $vendor_id );
+		return apply_filters( 'arti_psn_get_default_notice', $html, $vendor_id );
 
 	}
 
