@@ -10,7 +10,14 @@ function get_vendor_id_from_product( $product_id ){
 
 function get_vendor_methods( int $vendor_id ){
 
-	global $wpdb;
+	global $wpdb, $WCFMmp;
+
+	$WCFMmp->load_class('shipping-gateway');
+	( new \WCFMmp_Shipping_Gateway() )->load_shipping_methods();
+
+	if( !\WCFMmp_Shipping_By_Zone::is_shipping_enabled_for_seller( $vendor_id ) ){
+		return [];
+	}
 
 	$sql = "SELECT * FROM {$wpdb->prefix}wcfm_marketplace_shipping_zone_methods WHERE `vendor_id`={$vendor_id}";
 	return $wpdb->get_results( $sql );
