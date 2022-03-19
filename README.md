@@ -4,7 +4,7 @@
 
 Add automated notices to you product page based on vendor's shipping configurations.
 
-Currently, the marketplace supported is WCFM, but plans are adding most WooCommerce marketplace providers existent.
+Currently, the marketplace supported is WCFM, but plans are to add most WooCommerce marketplace providers existent.
 
 # How to use
 Download the latest release [here](https://github.com/Art-iDev/arti-product-shipping-notices/releases) and install normally. 
