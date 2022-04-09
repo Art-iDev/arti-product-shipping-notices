@@ -15,7 +15,7 @@ To show the notices in you product page, you have the following options:
 // Render in whichever action you want.
 add_action( 'woocommerce_after_add_to_cart_button', [ \Arti\PSN\Shipping_Notices::get_instance(), 'render_notices' ] );
 
-// User directly in a template file.
+// Use directly in a template file.
 \Arti\PSN\Shipping_Notices::get_instance()->render_notices();
 
 // Use the shortcode.
