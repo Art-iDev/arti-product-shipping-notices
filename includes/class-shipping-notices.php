@@ -7,7 +7,6 @@ use function Arti\PSN\Marketplace\functions\{
 	get_shop_url,
 	get_vendor_id_from_product,
 	get_vendor_methods,
-	get_vendor_zones,
 	get_zone_locations
 };
 
@@ -143,7 +142,7 @@ class Shipping_Notices {
 
 		}
 
-		return $states;
+		return apply_filters( 'arti_psn_expanded_locations', $states, $locations );
 
 	}
 
