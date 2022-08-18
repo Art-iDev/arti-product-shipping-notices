@@ -99,6 +99,7 @@ class Shipping_Notices {
 		if( apply_filters( 'arti_psn_sort_notices_by_min_amount', false ) ){
 			ksort( $location_groups );
 		}
+
 		if( apply_filters( 'arti_psn_remove_default_when_free_shipping_present', false ) && $has_free_shipping ){
 			unset( $notices[self::TYPE_DEFAULT] );
 		}
@@ -198,7 +199,7 @@ class Shipping_Notices {
 			$notice_template = __( '<strong>Free shipping</strong> for orders over %2$s with products from this vendor.', 'arti-psn' );
 		}
 
-		$notice_template = apply_filters( 'arti_psn_free_shipping_notice_template', $notice_template, $location_group, $min_amount );
+		$notice_template = apply_filters( 'arti_psn_free_shipping_notice_template', $notice_template, $vendor_id, $location_group, $min_amount );
 
 		$notice_html = sprintf( $notice_template, $locations_str, wc_price( $min_amount ) );
 
