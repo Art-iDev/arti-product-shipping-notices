@@ -1,5 +1,9 @@
 [![Donate with PayPal](https://img.shields.io/badge/paypal-Donate%20with%20paypal-blue?style=for-the-badge&logo=paypal&link=https://www.paypal.com/donate/?hosted_button_id=TZ984YJ3SJEQA)](https://www.paypal.com/donate/?hosted_button_id=TZ984YJ3SJEQA)
 
+[![Ajude a manter plugins gratuitos com Pix](https://img.shields.io/static/v1?style=for-the-badge&logo=pix&color=%2300b7a9&message=Ajude%20a%20manter%20plugins%20gratuitos%20com%20Pix&link=https://nubank.com.br/pagar/16gd05/2YML7GG3gW)](https://nubank.com.br/pagar/16gd05/2YML7GG3gW)
+
+[Documentação em português aqui.](https://github.com/Art-iDev/arti-product-shipping-notices/wiki/Documenta%C3%A7%C3%A3o-em-portugu%C3%AAs)
+
 # Product Shipping Notices for WooCommerce based marketplaces
 
 Add automated notices to you product page based on vendor's shipping configurations.
