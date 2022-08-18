@@ -76,8 +76,8 @@ class Shipping_Notices {
 
 			$expanded_locations = $this->expand_locations( $locations );
 
-			$min_amount = $settings['min_amount'];
 			$min_amount = $settings['min_amount'] ?? 0;
+			$min_amount = floatval( $min_amount );
 
 			$group_by_min_amount = apply_filters( 'arti_psn_group_notices_by_min_amount', false );
 
