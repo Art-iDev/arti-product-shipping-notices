@@ -29,6 +29,7 @@ Available hooks are:
 ### Filters
 * `arti_psn_shipping_notice_update`
 * `arti_psn_group_notices_by_min_amount`
+* `arti_psn_sort_notices_by_min_amount`
 * `arti_psn_remove_default_when_free_shipping_present`
 * `arti_psn_free_shipping_notice_template`
 * `arti_psn_free_shipping_url_template`

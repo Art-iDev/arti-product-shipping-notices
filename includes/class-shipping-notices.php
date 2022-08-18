@@ -96,6 +96,9 @@ class Shipping_Notices {
 
 		}
 
+		if( apply_filters( 'arti_psn_sort_notices_by_min_amount', false ) ){
+			ksort( $location_groups );
+		}
 		if( apply_filters( 'arti_psn_remove_default_when_free_shipping_present', false ) && $has_free_shipping ){
 			unset( $notices[self::TYPE_DEFAULT] );
 		}
