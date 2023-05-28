@@ -14,10 +14,14 @@ class Shipping_Notices {
 
 	private static $instance = null;
 	private const TYPE_DEFAULT = 'dafault';
+	private $separate_areas_by_subdivisions;
 
-	private function __construct(){}
+	private function __construct(){
+		$this->separate_areas_by_subdivisions =  apply_filters( 'arti_psn_separate_areas_by_subdivisions', false );
+	}
 
 	public static function get_instance(){
+
 		if ( null === self::$instance ) {
 			self::$instance = new self;
 		}
@@ -35,7 +39,7 @@ class Shipping_Notices {
 
 		if(
 			( $cached = get_transient( 'arti_psn_shipping_notice_' . $vendor_id ) ) &&
-			!apply_filters( 'arti_psn_shipping_notice_update', false )
+			!apply_filters( 'arti_psn_shipping_notice_update', isset( $_GET['arti_psn_shipping_notice_update'] ) )
 		){
 			return $cached;
 		}
@@ -61,6 +65,7 @@ class Shipping_Notices {
 				$notices[self::TYPE_DEFAULT] = $this->get_default_notice( $vendor_id );
 
 				continue;
+
 			}
 
 			$has_free_shipping = true;
@@ -69,12 +74,37 @@ class Shipping_Notices {
 
 			if( empty( $locations ) ){
 				// Get the locations from the "parent" zone, ie, the one from WooCommerce.
-				$locations = (new \WC_Shipping_Zone( $result->zone_id ))->get_zone_locations();
+				try {
+					$locations = (new \WC_Shipping_Zone( $result->zone_id ))->get_zone_locations();
+				} catch ( \Exception $e) {
+					if( apply_filters( 'arti_psn_debug', true ) ){
+						$msg = sprintf( 'Zone ID error: %s (vendor ID %s)', $result->zone_id, $vendor_id );
+						wc_get_logger()->add( 'arti-shipping-notices', print_r( $msg , true ) );
+					}
+					continue;
+				}
 			}
 
 			$settings = get_shipping_settings( $result );
 
-			$expanded_locations = $this->expand_locations( $locations );
+			if( $this->separate_areas_by_subdivisions ){
+
+				$locations_names = $this->expand_locations( $locations );
+
+			} else {
+
+				try {
+					$locations_names = [ (new \WC_Shipping_Zone( $result->zone_id ))->get_zone_name() ];
+				} catch ( \Exception $e) {
+					if( apply_filters( 'arti_psn_debug', false ) ){
+						$msg = sprintf( 'Zone ID error: %s (vendor ID %s)', $result->zone_id, $vendor_id );
+						wc_get_logger()->add( 'arti-shipping-notices', print_r( $msg , true ) );
+					}
+					// In case WCFM doesn't delete old zones' references.
+					continue;
+				}
+
+			}
 
 			$min_amount = $settings['min_amount'] ?? 0;
 			$min_amount = floatval( $min_amount );
@@ -84,14 +114,14 @@ class Shipping_Notices {
 			if( wc_string_to_bool( $group_by_min_amount ) ){
 
 				if( !isset( $location_groups[$min_amount] ) ){
-					$location_groups[$min_amount]['expanded_locations'] = [];
+					$location_groups[$min_amount]['locations_names'] = [];
 					$location_groups[$min_amount]['min_amount'] = $min_amount;
 				}
 
-				$location_groups[$min_amount]['expanded_locations'] = array_merge( $location_groups[$min_amount]['expanded_locations'], $expanded_locations );
+				$location_groups[$min_amount]['locations_names'] = array_merge( $location_groups[$min_amount]['locations_names'], $locations_names );
 
 			} else {
-				$location_groups[] = [ 'expanded_locations' => $expanded_locations, 'min_amount' => $min_amount ];
+				$location_groups[] = [ 'locations_names' => $locations_names, 'min_amount' => $min_amount ];
 			}
 
 		}
@@ -106,10 +136,10 @@ class Shipping_Notices {
 
 		foreach( $location_groups as $location_group ){
 
-			$expanded_locations = $location_group['expanded_locations'];
+			$locations_names = array_unique( $location_group['locations_names'] );
 			$min_amount = $location_group['min_amount'];
 
-			$notices[] = $this->get_free_shipping_notice( $expanded_locations, $min_amount, $vendor_id );
+			$notices[] = $this->get_free_shipping_notice( $locations_names, $min_amount, $vendor_id );
 		}
 
 		$html = implode( '', $notices );
@@ -147,7 +177,7 @@ class Shipping_Notices {
 
 		}
 
-		return apply_filters( 'arti_psn_expanded_locations', $states, $locations );
+		return apply_filters( 'arti_psn_locations_names', $states, $locations );
 
 	}
 
@@ -192,6 +222,28 @@ class Shipping_Notices {
 				$location_group_length,
 				'arti-psn'
 			);
+		}
+
+		if( !$this->separate_areas_by_subdivisions ){
+
+			/* translators: 1: location 2: order amount */
+			$notice_template = _n(
+				'<strong>Free shipping</strong> to %1$s for orders over %2$s with products from this vendor.',
+				'<strong>Free shipping</strong> to %1$s for orders over %2$s with products from this vendor.',
+				$location_group_length,
+				'arti-psn'
+			);
+
+			if( 0 === intval( $min_amount ) ){
+				/* translators: 1: location group (eg, list of states) */
+				$notice_template = _n(
+					'<strong>Free shipping</strong> to %1$s with products from this vendor.',
+					'<strong>Free shipping</strong> to %1$s with products from this vendor.',
+					$location_group_length,
+					'arti-psn'
+				);
+			}
+
 		}
 
 		if( empty( $location_group ) ){
