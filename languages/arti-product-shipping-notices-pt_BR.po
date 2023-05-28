@@ -33,12 +33,12 @@ msgstr ""
 msgid "http://art-idesenvolvimento.com.br"
 msgstr ""
 
-#: includes/class-shipping-notices.php:172
+#: includes/class-shipping-notices.php:207
 msgid " and"
 msgstr " e"
 
 #. translators: 1: location group (eg, list of states) 2: order amount
-#: includes/class-shipping-notices.php:176
+#: includes/class-shipping-notices.php:211
 msgid ""
 "<strong>Free shipping</strong> to the state of %1$s for orders over %2$s "
 "with products from this vendor."
@@ -49,11 +49,11 @@ msgstr[0] ""
 "<strong>Frete grátis</strong> para o estado %1$s em pedidos acima de "
 "%2$s nos produtos desse vendedor."
 msgstr[1] ""
-"<strong>Frete grátis</strong> para os estados de %1$s em pedidos acima de "
+"<strong>Frete grátis</strong> para os estados %1$s em pedidos acima de "
 "%2$s nos produtos desse vendedor."
 
 #. translators: 1: location group (eg, list of states)
-#: includes/class-shipping-notices.php:185
+#: includes/class-shipping-notices.php:220
 msgid ""
 "<strong>Free shipping</strong> to the state of %1$s with products from this "
 "vendor."
@@ -61,35 +61,62 @@ msgid_plural ""
 "<strong>Free shipping</strong> to the states of %1$s with products from this "
 "vendor."
 msgstr[0] ""
-"<strong>Frete grátis</strong> para o estado %1$s nos produtos desse "
-"vendedor."
+"<strong>Frete grátis</strong> para o estado %1$s "
+"nos produtos desse vendedor."
 msgstr[1] ""
-"<strong>Frete grátis</strong> para os estados de %1$s nos produtos desse "
-"vendedor."
+"<strong>Frete grátis</strong> para os estados %1$s "
+"nos produtos desse vendedor."
+
+#. translators: 1: location 2: order amount
+#: includes/class-shipping-notices.php:231
+msgid ""
+"<strong>Free shipping</strong> to %1$s for orders over %2$s with products "
+"from this vendor."
+msgid_plural ""
+"<strong>Free shipping</strong> to %1$s for orders over %2$s with products "
+"from this vendor."
+msgstr[0] ""
+"<strong>Frete grátis</strong> para %1$s em pedidos acima de "
+"%2$s nos produtos desse vendedor."
+msgstr[1] ""
+"<strong>Frete grátis</strong> para %1$s em pedidos acima de "
+"%2$s nos produtos desse vendedor."
+
+#. translators: 1: location group (eg, list of states)
+#: includes/class-shipping-notices.php:240
+msgid "<strong>Free shipping</strong> to %1$s with products from this vendor."
+msgid_plural ""
+"<strong>Free shipping</strong> to %1$s with products from this vendor."
+msgstr[0] ""
+"<strong>Frete grátis</strong> para %1$s "
+"nos produtos desse vendedor."
+msgstr[1] ""
+"<strong>Frete grátis</strong> para %1$s "
+"nos produtos desse vendedor."
 
 #. translators: 2: order amount
-#: includes/class-shipping-notices.php:195
+#: includes/class-shipping-notices.php:252
 msgid ""
 "<strong>Free shipping</strong> for orders over %2$s with products from this "
 "vendor."
 msgstr ""
-"<strong>Frete grátis</strong> em pedidos acima de %2$s nos produtos desse "
-"vendedor."
+"<strong>Frete grátis</strong> para pedidos a partir de %2$s em produtos "
+"dessa loja."
 
 #. translators: %s: vendor shop URL
-#: includes/class-shipping-notices.php:204
+#: includes/class-shipping-notices.php:261
 msgid ""
-"Check all options <a href=\"%s\" title=\"All products from this vendor"
-"\">here</a>."
+"Check all options <a href=\"%s\" title=\"All products from this "
+"vendor\">here</a>."
 msgstr ""
 "Confira todas as opções <a href=\"%s\" title=\"Todos os produtos desse "
 "vendedor\">aqui</a>."
 
-#: includes/class-shipping-notices.php:223
+#: includes/class-shipping-notices.php:280
 msgid "Save more by adding products of the same vendor to your cart"
-msgstr "Economize mais adicionando produtos do mesmo vendedor ao carrinho"
+msgstr "Economize no frete escolhendo mais produtos da mesma loja"
 
 #. translators: %s: vendor shop URL
-#: includes/class-shipping-notices.php:227
+#: includes/class-shipping-notices.php:284
 msgid "<a href=\"%s\" title=\"All products from this vendor\">here</a>."
 msgstr "<a href=\"%s\" title=\"Todos os produtos desse vendedor\">aqui</a>."

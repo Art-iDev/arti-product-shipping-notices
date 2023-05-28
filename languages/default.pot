@@ -1,17 +1,17 @@
-# Copyright (C) 2021 Luis Eduardo Casper Braschi
+# Copyright (C) 2023 Luis Eduardo Casper Braschi
 # This file is distributed under the same license as the Product shipping notices for WCFM plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Product shipping notices for WCFM 0.1.2`\n"
+"Project-Id-Version: Product shipping notices for WCFM 1.0\n"
 "Report-Msgid-Bugs-To: https://art-idesenvolvimento.com.br/wordpress/plugins/product-shipping-notices\n"
 "Last-Translator: Luis Eduardo Casper Braschi <luis.braschi@art-idesenvolvimento.com.br>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-12-10T12:16:31-03:00\n"
+"POT-Creation-Date: 2023-05-27T22:58:20-03:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.5.0\n"
+"X-Generator: WP-CLI 2.7.1\n"
 "X-Domain: arti-psn\n"
 
 #. Plugin Name of the plugin
@@ -30,39 +30,53 @@ msgstr ""
 msgid "http://art-idesenvolvimento.com.br"
 msgstr ""
 
-#: includes/class-shipping-notices.php:172
+#: includes/class-shipping-notices.php:207
 msgid " and"
 msgstr ""
 
 #. translators: 1: location group (eg, list of states) 2: order amount
-#: includes/class-shipping-notices.php:176
+#: includes/class-shipping-notices.php:211
 msgid "<strong>Free shipping</strong> to the state of %1$s for orders over %2$s with products from this vendor."
 msgid_plural "<strong>Free shipping</strong> to the states of %1$s for orders over %2$s with products from this vendor."
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: 1: location group (eg, list of states)
-#: includes/class-shipping-notices.php:185
+#: includes/class-shipping-notices.php:220
 msgid "<strong>Free shipping</strong> to the state of %1$s with products from this vendor."
 msgid_plural "<strong>Free shipping</strong> to the states of %1$s with products from this vendor."
 msgstr[0] ""
 msgstr[1] ""
 
+#. translators: 1: location 2: order amount
+#: includes/class-shipping-notices.php:231
+msgid "<strong>Free shipping</strong> to %1$s for orders over %2$s with products from this vendor."
+msgid_plural "<strong>Free shipping</strong> to %1$s for orders over %2$s with products from this vendor."
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: location group (eg, list of states)
+#: includes/class-shipping-notices.php:240
+msgid "<strong>Free shipping</strong> to %1$s with products from this vendor."
+msgid_plural "<strong>Free shipping</strong> to %1$s with products from this vendor."
+msgstr[0] ""
+msgstr[1] ""
+
 #. translators: 2: order amount
-#: includes/class-shipping-notices.php:195
+#: includes/class-shipping-notices.php:252
 msgid "<strong>Free shipping</strong> for orders over %2$s with products from this vendor."
 msgstr ""
 
 #. translators: %s: vendor shop URL
-#: includes/class-shipping-notices.php:204
+#: includes/class-shipping-notices.php:261
 msgid "Check all options <a href=\"%s\" title=\"All products from this vendor\">here</a>."
 msgstr ""
 
-#: includes/class-shipping-notices.php:223
+#: includes/class-shipping-notices.php:280
 msgid "Save more by adding products of the same vendor to your cart"
 msgstr ""
 
 #. translators: %s: vendor shop URL
-#: includes/class-shipping-notices.php:227
+#: includes/class-shipping-notices.php:284
 msgid "<a href=\"%s\" title=\"All products from this vendor\">here</a>."
 msgstr ""
