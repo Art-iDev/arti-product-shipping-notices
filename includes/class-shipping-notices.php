@@ -81,6 +81,7 @@ class Shipping_Notices {
 						$msg = sprintf( 'Zone ID error: %s (vendor ID %s)', $result->zone_id, $vendor_id );
 						wc_get_logger()->add( 'arti-shipping-notices', print_r( $msg , true ) );
 					}
+					// In case WCFM doesn't delete old zones' references.
 					continue;
 				}
 			}
