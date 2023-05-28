@@ -17,7 +17,6 @@ class Shipping_Notices {
 	private $separate_areas_by_subdivisions;
 
 	private function __construct(){
-		$this->separate_areas_by_subdivisions =  apply_filters( 'arti_psn_separate_areas_by_subdivisions', false );
 		$this->separate_areas_by_subdivisions =  apply_filters( 'arti_psn_separate_areas_by_subdivisions', true );
 	}
 
@@ -76,7 +75,7 @@ class Shipping_Notices {
 			if( empty( $locations ) ){
 				// Get the locations from the "parent" zone, ie, the one from WooCommerce.
 				try {
-					$locations = (new \WC_Shipping_Zone( $result->zone_id ))->get_zone_locations();
+					$locations = ( new \WC_Shipping_Zone( $result->zone_id ) )->get_zone_locations();
 				} catch ( \Exception $e) {
 					if( apply_filters( 'arti_psn_debug', true ) ){
 						$msg = sprintf( 'Zone ID error: %s (vendor ID %s)', $result->zone_id, $vendor_id );
@@ -96,7 +95,7 @@ class Shipping_Notices {
 			} else {
 
 				try {
-					$locations_names = [ (new \WC_Shipping_Zone( $result->zone_id ))->get_zone_name() ];
+					$locations_names = [ ( new \WC_Shipping_Zone( $result->zone_id ) )->get_zone_name() ];
 				} catch ( \Exception $e) {
 					if( apply_filters( 'arti_psn_debug', false ) ){
 						$msg = sprintf( 'Zone ID error: %s (vendor ID %s)', $result->zone_id, $vendor_id );
