@@ -18,6 +18,7 @@ class Shipping_Notices {
 
 	private function __construct(){
 		$this->separate_areas_by_subdivisions =  apply_filters( 'arti_psn_separate_areas_by_subdivisions', false );
+		$this->separate_areas_by_subdivisions =  apply_filters( 'arti_psn_separate_areas_by_subdivisions', true );
 	}
 
 	public static function get_instance(){
