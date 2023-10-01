@@ -4,9 +4,9 @@
 
 [Documentação em português aqui.](https://github.com/Art-iDev/arti-product-shipping-notices/wiki/Documenta%C3%A7%C3%A3o-em-portugu%C3%AAs)
 
-# Product Shipping Notices for WooCommerce based marketplaces
+# Product Shipping Notices for WooCommerce-based marketplaces
 
-Add automated notices to you product page based on vendor's shipping configurations.
+Add automated notices to your product page based on vendor's shipping configurations.
 
 Currently, the marketplace supported is WCFM, but plans are to add most WooCommerce marketplace providers existent.
 
