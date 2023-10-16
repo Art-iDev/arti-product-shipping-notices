@@ -35,6 +35,8 @@ class Shipping_Notices {
 			return;
 		}
 
+		$this->separate_areas_by_subdivisions =  apply_filters( 'arti_psn_separate_areas_by_subdivisions', true );
+
 		$vendor_id = get_vendor_id_from_product( get_the_id() );
 
 		if(
