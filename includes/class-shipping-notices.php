@@ -61,6 +61,10 @@ class Shipping_Notices {
 
 		foreach ( $results as $key => $result ) {
 
+			if( apply_filters( 'arti_psn_bypass_method', false, $result ) ){
+				continue;
+			}
+
 			if( 'free_shipping' !== $result->method_id || !wc_string_to_bool( $result->is_enabled ) ){
 
 				// We only need one default.
