@@ -3,11 +3,11 @@
  * Plugin Name: Product shipping notices for WCFM
  * Plugin URI: https://art-idesenvolvimento.com.br/wordpress/plugins/aviso-de-frete-para-marketplaces
  * Description:
- * Version: 1.0
+ * Version: 1.1.0
  * Requires at least:    5.6.1
  * Tested up to:         5.8.2
  * WC requires at least: 5.0.0
- * WC tested up to:      6.1.0
+ * WC tested up to:      8.2.0
  * Requires PHP:         7.1
  * Author: Luis Eduardo Casper Braschi
  * Author URI: http://art-idesenvolvimento.com.br
@@ -43,3 +43,9 @@ function arti_psn_load_plugin_textdomain() {
 	load_plugin_textdomain( 'arti-psn', false, dirname( ARTI_PSN_BASENAME ) . '/languages' );
 }
 add_action( 'init', 'arti_psn_load_plugin_textdomain' );
+
+add_action( 'before_woocommerce_init', function() {
+	if ( class_exists( \Automattic\WooCommerce\Utilities\FeaturesUtil::class ) ) {
+		\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', __FILE__, true );
+	}
+} );
