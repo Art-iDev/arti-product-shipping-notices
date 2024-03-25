@@ -9,10 +9,14 @@
  *
  * $shop_url_html
  * @var string
+ *
+ * $wrapper_classes
+ * @var string
+ *
  */
 
 ?>
-<div class="shipping-notice fixed-rate-shipping">
+<div class="shipping-notice fixed-rate-shipping <?php echo $wrapper_classes?>">>
     <?php
         do_action( 'arti_psn_notice' );
         do_action( 'arti_psn_before_fixed_rate_notice' );

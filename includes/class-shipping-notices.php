@@ -269,9 +269,15 @@ class Shipping_Notices {
 
 		$shop_url_html = sprintf( $shop_url_template, esc_attr( $shop_url ) );
 
+		$wrapper_classes = implode( ' ', apply_filters( 'arti_psn_notice_wrapper_classes' , [] ) );
+
 		$html = wc_get_template_html(
 			'product-shipping-notices/free-shipping.php',
-			[ 'notice_html' => $notice_html, 'shop_url_html' => $shop_url_html ],
+			[
+				'notice_html'   => wp_kses_post( $notice_html ),
+				'shop_url_html' => wp_kses_post( $shop_url_html ),
+				'wrapper_classes' => esc_attr( $wrapper_classes ),
+			],
 			'',
 			ARTI_PSN_TEMPLATE
 		);
@@ -292,9 +298,15 @@ class Shipping_Notices {
 
 		$shop_url_html = sprintf( $shop_url_template, esc_attr( $shop_url ) );
 
+		$wrapper_classes = implode( ' ', apply_filters( 'arti_psn_notice_wrapper_classes' , [] ) );
+
 		$html = wc_get_template_html(
 			'product-shipping-notices/default.php',
-			[ 'notice_html' => $notice_html, 'shop_url_html' => $shop_url_html ],
+			[
+				'notice_html' => $notice_html,
+				'shop_url_html' => $shop_url_html,
+				'wrapper_classes' => esc_attr( $wrapper_classes ),
+			],
 			'',
 			ARTI_PSN_TEMPLATE
 		);

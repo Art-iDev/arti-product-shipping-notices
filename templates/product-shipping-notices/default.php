@@ -9,10 +9,14 @@
  *
  * $shop_url_html
  * @var string
+ *
+ * $wrapper_classes
+ * @var string
+ *
  */
 
 ?>
-<div class="shipping-notice default">
+<div class="shipping-notice default <?php echo $wrapper_classes?>">
     <?php
         do_action( 'arti_psn_notice' );
         do_action( 'arti_psn_before_default_notice' );
