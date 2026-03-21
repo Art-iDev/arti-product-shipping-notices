@@ -113,19 +113,19 @@ class Shipping_Notices {
 
 			}
 
-			$min_amount = $settings['min_amount'] ?? 0;
-			$min_amount = floatval( $min_amount );
+			$min_amount_string = $settings['min_amount'] ?? 0;
+			$min_amount = floatval( $min_amount_string );
 
 			$group_by_min_amount = apply_filters( 'arti_psn_group_notices_by_min_amount', false );
 
 			if( wc_string_to_bool( $group_by_min_amount ) ){
 
-				if( !isset( $location_groups[$min_amount] ) ){
-					$location_groups[$min_amount]['locations_names'] = [];
-					$location_groups[$min_amount]['min_amount'] = $min_amount;
+				if( !isset( $location_groups[$min_amount_string] ) ){
+					$location_groups[$min_amount_string]['locations_names'] = [];
+					$location_groups[$min_amount_string]['min_amount'] = $min_amount;
 				}
 
-				$location_groups[$min_amount]['locations_names'] = array_merge( $location_groups[$min_amount]['locations_names'], $locations_names );
+				$location_groups[$min_amount_string]['locations_names'] = array_merge( $location_groups[$min_amount_string]['locations_names'], $locations_names );
 
 			} else {
 				$location_groups[] = [ 'locations_names' => $locations_names, 'min_amount' => $min_amount ];
