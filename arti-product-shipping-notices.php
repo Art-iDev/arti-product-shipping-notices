@@ -40,7 +40,7 @@ function arti_psn_includes(){
 add_action( 'plugin_loaded', 'arti_psn_includes' );
 
 function arti_psn_load_plugin_textdomain() {
-	load_plugin_textdomain( 'arti-psn', false, dirname( ARTI_PSN_BASENAME ) . '/languages' );
+	load_plugin_textdomain( 'arti-product-shipping-notices', false, dirname( ARTI_PSN_BASENAME ) . '/languages' );
 }
 add_action( 'init', 'arti_psn_load_plugin_textdomain' );
 

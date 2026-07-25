@@ -208,9 +208,12 @@ class Shipping_Notices {
 		if( 1 < $location_group_length ){
 			/**
 			 * @todo Cover RTL languages and/or languages that don't use "and".
-			 * @var $locations_str Replace the last comma witb "and".
 			 */
-			$locations_str = substr_replace( $locations_str, __( ' and', 'arti-psn' ), strrpos( $locations_str, ',' ), 1 );
+			$locations_str = substr_replace(
+				$locations_str,
+				__( ' and', 'arti-product-shipping-notices' ),
+				strrpos( $locations_str, ',' ),
+			1 );
 		}
 
 		/* translators: 1: location group (eg, list of states) 2: order amount */
@@ -255,7 +258,7 @@ class Shipping_Notices {
 
 		if( empty( $location_group ) ){
 			/* translators: 2: order amount */
-			$notice_template = __( '<strong>Free shipping</strong> for orders over %2$s with products from this vendor.', 'arti-psn' );
+			$notice_template = __( '<strong>Free shipping</strong> for orders over %2$s with products from this vendor.', 'arti-product-shipping-notices' );
 		}
 
 		$notice_template = apply_filters( 'arti_psn_free_shipping_notice_template', $notice_template, $vendor_id, $location_group, $min_amount );
@@ -264,7 +267,7 @@ class Shipping_Notices {
 
 		$shop_url = get_shop_url( $vendor_id );
 		/* translators: %s: vendor shop URL */
-		$shop_url_template = __( 'Check all options <a href="%s" title="All products from this vendor">here</a>.', 'arti-psn' );
+		$shop_url_template = __( 'Check all options <a href="%s" title="All products from this vendor">here</a>.', 'arti-product-shipping-notices' );
 		$shop_url_template = apply_filters( 'arti_psn_free_shipping_url_template', $shop_url_template );
 
 		$shop_url_html = sprintf( $shop_url_template, esc_attr( $shop_url ) );
@@ -289,11 +292,11 @@ class Shipping_Notices {
 	protected function get_default_notice( $vendor_id ){
 
 		// This sentence will continue later.
-		$notice_html = __( 'Save more by adding products of the same vendor to your cart', 'arti-psn' );
+		$notice_html = __( 'Save more by adding products of the same vendor to your cart', 'arti-product-shipping-notices' );
 
 		$shop_url = esc_url( get_shop_url( $vendor_id ) );
 		/* translators: %s: vendor shop URL */
-		$shop_url_template = __( '<a href="%s" title="All products from this vendor">here</a>.', 'arti-psn' );
+		$shop_url_template = __( '<a href="%s" title="All products from this vendor">here</a>.', 'arti-product-shipping-notices' );
 		$shop_url_template = apply_filters( 'arti_psn_default_url_template', $shop_url_template );
 
 		$shop_url_html = sprintf( $shop_url_template, esc_attr( $shop_url ) );
