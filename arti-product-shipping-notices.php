@@ -32,12 +32,24 @@ define( 'ARTI_PSN_SLUG',           'arti-psn' ); //textdomain as well
 define( 'ARTI_PSN_TEMPLATE',   ARTI_PSN_PATH . '/templates/' );
 
 function arti_psn_includes(){
-	include_once ARTI_PSN_PATH . '/includes/marketplace-functions.php';
+
+	if( class_exists( 'WeDevs_Dokan' ) ){
+		$marketplace = 'dokan';
+	}
+
+	if( class_exists( 'WCFMmp' ) ){
+		$marketplace = 'wcfm';
+	}
+
+	if( isset( $marketplace ) ){
+		include_once ARTI_PSN_PATH . "/includes/marketplace-functions/$marketplace.php";
+	}
+
 	include_once ARTI_PSN_PATH . '/includes/class-shipping-notices.php';
 	include_once ARTI_PSN_PATH . '/includes/class-core.php';
 }
 
-add_action( 'plugin_loaded', 'arti_psn_includes' );
+add_action( 'plugins_loaded', 'arti_psn_includes' );
 
 function arti_psn_load_plugin_textdomain() {
 	load_plugin_textdomain( 'arti-product-shipping-notices', false, dirname( ARTI_PSN_BASENAME ) . '/languages' );

@@ -24,6 +24,9 @@ function get_vendor_methods( int $vendor_id ){
 
 }
 
+/**
+ * @return array
+ */
 function get_zone_locations( int $zone_id, int $vendor_id ){
 	return \WCFMmp_Shipping_Zone::get_locations( $zone_id, $vendor_id );
 }
@@ -33,6 +36,6 @@ function get_shop_url( $vendor_id ){
 }
 
 function get_shipping_settings( $result ){
-	$settings = !empty( $result->settings ) ? maybe_unserialize( $result->settings ) : array();
+	$settings = !empty( $result->settings ) ? maybe_unserialize( $result->settings ) : [];
 	return array_map( 'stripslashes_deep', maybe_unserialize( $settings ) );
 }

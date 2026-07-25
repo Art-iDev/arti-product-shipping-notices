@@ -12,12 +12,12 @@ use function Arti\PSN\Marketplace\functions\{
 
 class Shipping_Notices {
 
-	private static $instance = null;
+	private static ?Shipping_Notices $instance = null;
 	private const TYPE_DEFAULT = 'dafault';
-	private $separate_areas_by_subdivisions;
+	private bool $separate_areas_by_subdivisions;
 
 	private function __construct(){
-		$this->separate_areas_by_subdivisions =  apply_filters( 'arti_psn_separate_areas_by_subdivisions', true );
+		$this->separate_areas_by_subdivisions = apply_filters( 'arti_psn_separate_areas_by_subdivisions', true );
 	}
 
 	public static function get_instance(){
